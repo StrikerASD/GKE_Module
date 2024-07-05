@@ -118,7 +118,6 @@ variable "google_kms_crypto_key_iam_member_role" {
 variable "google_kms_crypto_key_iam_member_member" {
   type = string
   description = "Service Account which will have access to the keyring, which was already created in variables above."
-  default = var.sa_account_id
 }
 
 variable "google_storage_bucket_name" {
