@@ -1,5 +1,9 @@
 ### Module configuration for separately managed node pool (recommended by google)
 
+resource "google_compute_network" "gke-network" {
+  name = "gke-network"
+}
+
 resource "google_service_account" "default" {
   project      = var.project
   account_id   = var.sa_account_id
@@ -10,7 +14,7 @@ resource "google_container_cluster" "primary" {
   project  = var.project
   name     = var.container_cluster_name
   location = var.container_cluster_location
-  network = google_container_cluster.primary.network
+  network = google_compute_network.gke-network.name
 
   # We can't create a cluster with no node pool defined, but we want to only use
   # separately managed node pools. So we create the smallest possible default
