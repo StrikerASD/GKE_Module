@@ -1,9 +1,9 @@
 ### Module configuration for separately managed node pool (recommended by google)
 
-resource "google_service_account" "default" {
-  account_id   = var.sa_account_id
-  display_name = var.sa_display_name
-}
+# resource "google_service_account" "default" {
+#   account_id   = var.sa_account_id
+#   display_name = var.sa_display_name
+# }
 
 resource "google_container_cluster" "primary" {
   name     = var.container_cluster_name
