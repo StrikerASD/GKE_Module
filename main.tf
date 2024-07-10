@@ -1,7 +1,7 @@
 ### Module configuration for separately managed node pool (recommended by google)
 
 resource "google_service_account" "default" {
-  project = var.project
+  project      = var.project
   account_id   = var.sa_account_id
   display_name = var.sa_display_name
 }
@@ -18,6 +18,7 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
+  project    = var.project
   name       = var.container_node_pool_name
   location   = var.container_node_pool_location
   cluster    = google_container_cluster.primary.name
