@@ -1,7 +1,7 @@
 ### Module configuration for separately managed node pool (recommended by google)
 
 resource "google_compute_network" "gke-network" {
-  name = "gke-network"
+  name = var.google_compute_network_name
 }
 
 resource "google_service_account" "default" {

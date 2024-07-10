@@ -1,3 +1,7 @@
+variable "google_compute_network_name" {
+  type = string
+}
+
 variable "sa_account_id" {
   type        = string
   description = "Google Service Account ID"
