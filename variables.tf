@@ -1,12 +1,12 @@
-# variable "sa_account_id" {
-#   type = string
-#   description = "Google Service Account ID"
-# }
-#
-# variable "sa_display_name" {
-#   type = string
-#   description = "Display name for google_service_account resource"
-# }
+variable "sa_account_id" {
+  type = string
+  description = "Google Service Account ID"
+}
+
+variable "sa_display_name" {
+  type = string
+  description = "Display name for google_service_account resource"
+}
 
 variable "container_cluster_name" {
   type = string
