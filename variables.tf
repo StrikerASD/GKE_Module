@@ -8,6 +8,11 @@ variable "sa_display_name" {
   description = "Display name for google_service_account resource"
 }
 
+variable "project" {
+  type = string
+  description = "General project ID"
+}
+
 variable "container_cluster_name" {
   type = string
   description = "Name for google_container_cluster resource"
