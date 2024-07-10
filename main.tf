@@ -7,6 +7,7 @@ resource "google_service_account" "default" {
 }
 
 resource "google_container_cluster" "primary" {
+  project  = var.project
   name     = var.container_cluster_name
   location = var.container_cluster_location
 
