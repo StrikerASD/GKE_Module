@@ -1,6 +1,7 @@
 ### Module configuration for separately managed node pool (recommended by google)
 
 resource "google_compute_network" "gke-network" {
+  project = var.project
   name = var.google_compute_network_name
 }
 
