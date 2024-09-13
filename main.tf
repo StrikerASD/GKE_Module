@@ -3,12 +3,18 @@
 resource "google_compute_network" "gke-network" {
   project = var.project
   name = var.google_compute_network_name
+  lifecycle {
+  create_before_destroy = true
+  }
 }
 
 resource "google_service_account" "default" {
   project      = var.project
   account_id   = var.sa_account_id
   display_name = var.sa_display_name
+  lifecycle {
+  create_before_destroy = true
+  }
 }
 
 resource "google_container_cluster" "primary" {
