@@ -23,6 +23,7 @@ resource "google_container_cluster" "primary" {
   location = var.container_cluster_location
   network = google_compute_network.gke-network.name
   deletion_protection = var.deletion_protection
+  enable_autopilot = var.enable_autopilot
 
   # We can't create a cluster with no node pool defined, but we want to only use
   # separately managed node pools. So we create the smallest possible default
