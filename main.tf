@@ -24,12 +24,26 @@ resource "google_container_cluster" "primary" {
   network = google_compute_network.gke-network.name
   deletion_protection = var.deletion_protection
   enable_autopilot = var.enable_autopilot
+  cluster_autoscaling {
+    enabled = true
+    autoscaling_profile = "OPTIMIZE-UTILIZATION"
+    resource_limits {
+      resource_type = "cpu"
+      minimum = 1
+      maximum = 4
+    }
+    resource_limits {
+      resource_type = "memory"
+      minimum = 256
+      maximum = 2048
+    }
+  }
 
-#   # We can't create a cluster with no node pool defined, but we want to only use
-#   # separately managed node pools. So we create the smallest possible default
-#   # node pool and immediately delete it.
-#   remove_default_node_pool = var.container_cluster_remove_default_node_pool
-#   initial_node_count       = var.container_cluster_initial_node_count
+  # We can't create a cluster with no node pool defined, but we want to only use
+  # separately managed node pools. So we create the smallest possible default
+  # node pool and immediately delete it.
+  remove_default_node_pool = var.container_cluster_remove_default_node_pool
+  initial_node_count       = var.container_cluster_initial_node_count
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
