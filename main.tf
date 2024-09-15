@@ -26,7 +26,7 @@ resource "google_container_cluster" "primary" {
   enable_autopilot = var.enable_autopilot
   cluster_autoscaling {
     enabled = true
-    autoscaling_profile = "OPTIMIZE-UTILIZATION"
+    autoscaling_profile = "OPTIMIZE_UTILIZATION"
     resource_limits {
       resource_type = "cpu"
       minimum = 1
