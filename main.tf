@@ -23,7 +23,7 @@ resource "google_container_cluster" "primary" {
   location = var.container_cluster_location
   network = google_compute_network.gke-network.name
   deletion_protection = var.deletion_protection
-  enable_autopilot = var.enable_autopilot
+  #enable_autopilot = var.enable_autopilot
   cluster_autoscaling {
     enabled = true
     autoscaling_profile = "OPTIMIZE_UTILIZATION"

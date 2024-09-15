@@ -82,7 +82,7 @@ variable "deletion_protection" {
   default     = true
 }
 
-variable "enable_autopilot" {
-  type        = bool
-  default     = false
-}
+# variable "enable_autopilot" {
+#   type        = bool
+#   default     = false
+# }
