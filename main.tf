@@ -8,16 +8,16 @@ resource "google_compute_network" "gke-network" {
   }
 }
 
-resource "google_service_account" "default" {
-  project      = var.project
-  account_id   = var.sa_account_id
-  display_name = var.sa_display_name
-  disabled     = false
-  create_ignore_already_exists = true
-  lifecycle {
-  create_before_destroy = true
-  }
-}
+# resource "google_service_account" "default" {
+#   project      = var.project
+#   account_id   = var.sa_account_id
+#   display_name = var.sa_display_name
+#   disabled     = false
+#   create_ignore_already_exists = true
+#   lifecycle {
+#   create_before_destroy = true
+#   }
+# }
 
 resource "google_container_cluster" "primary" {
   project  = var.project
@@ -60,7 +60,7 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
     machine_type = var.node_config_machine_type
 
     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    service_account = google_service_account.default.email
+    service_account = var.default_compute_service_account
     oauth_scopes    = var.node_config_oauth_scopes
   }
 }
