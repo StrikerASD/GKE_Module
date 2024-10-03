@@ -82,11 +82,6 @@ variable "deletion_protection" {
   default     = true
 }
 
-variable "default_compute_service_account" {
-  type = string
-  description = "Service account which is created with the GCP project"
-}
-
 # variable "enable_autopilot" {
 #   type        = bool
 #   default     = false
