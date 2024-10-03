@@ -12,6 +12,8 @@ resource "google_service_account" "default" {
   project      = var.project
   account_id   = var.sa_account_id
   display_name = var.sa_display_name
+  disabled     = false
+  create_ignore_already_exists = true
   lifecycle {
   create_before_destroy = true
   }
